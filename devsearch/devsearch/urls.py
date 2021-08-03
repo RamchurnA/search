@@ -24,8 +24,12 @@ def projects(request):
 def project(request, pk):
     return HttpResponse('Single project' +' ' + str(pk))
 
+def home(request):
+    return HttpResponse('This is the Home page')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('projects/', projects, name='projects'),
     path('project/<str:pk>/', project, name='project'),
+    path('home/', home, name='home'),
 ]
