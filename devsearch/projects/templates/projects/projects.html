@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- <p>Hello you are on the {{ page }} page</p> -->
+
+{% if number > 10 and page == 'Projects' %}
+
+<p>Number is greater than 10 and you are on the {{page}} page</p>
+
+{% elif number == 10%}
+
+<p>Number is exactly 10</p>
+
+{% else %}
+
+<p>Number is less than 10 or page name is wrong page is number {{page}}</p>
+
+{% endif %}
+
+<hr>
+
+<h1>Projects</h1>
+
+<ul>
+    {% for project in pro %}
+    <li>Description: {{project.description}}
+        <ul>
+            <!-- <li>id:<a href="/project/{{project.id}}">{{project.title}}</a></li> -->
+            <li>id:<a href="{% url 'project' project.id %}">{{project.title}}</a></li>
+        </ul>
+
+
+    </li>
+    {% endfor %}
+
+
+
+</ul>
+
+{% endblock content %}
